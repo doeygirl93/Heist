@@ -9,25 +9,27 @@ h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; }
 // ── Data ────────────────────────────────────────────────────
 
 const phases = [
-  { name: "The Blueprint", day: "Day 7",  desc: 'Plan the job. Define your tools, Project requirements and tools.', checkpoint: null },
-  { name: "Breach",    day: "Day 12", desc: "Break in to the sucurity. Get the first functional logic working.",          checkpoint: "REQUIREMNET: 8 hours logged" },
-  { name: "Vault",     day: "Day 19", desc: "Day of mission: Creak the core and finish the MVP.",                             checkpoint: "REQUIREMENT: 19 hours logged" },
-  { name: "Getaway",   day: "Day 25", desc: "Finish the job. Ship your project and demo.",                checkpoint: "REQUIREMNET: 25 hours logged" },
+  { name: "The Blueprint", day: "Day 1-5",  desc: 'Plan the job. Define your tools, and project requirements. You can start the next phase early once approved', checkpoint: null },
+  { name: "Initial Breach",    day: "Day 5-12", desc: "Make your first real entry and break in to the sucurity. Get the first functional logic working.",          checkpoint: "REQUIREMNET: Get 8 hours logged" },
+  { name: "Creak the Vault",     day: "Day 12-19", desc: "Day of mission: Creak the core and finish the MVP.",                             checkpoint: "REQUIREMENT: 19 hours logged, Get MVP" },
+  { name: "Final Getaway",   day: "Day 19-25", desc: "Finish the job. Polish and ship your project and demo. Chose the loot found from the vault. ",                checkpoint: "REQUIREMNET: 25 hours logged and shipped" },
 ];
 
 const gearItems = [
-  { name: "Raspberry Pi 5" },
-  { name: "Keychron K10 HE" },
-  { name: 'ARZOPA 16"'},
-  { name: "Flipper Zero"},
+  { name: "Raspberry Pi 5 Kit" },
+  { name: "Flipper Zero" },
+  { name: 'ARZOPA 16" Portable Monitor '},
+  { name: "Keychron K10 keyboard"},
 ];
 
 const faqs = [
-  { q: "What can I build?",      a: "Anything ambitious enough to take around 25 hours - a web app, hardware project, CLI tool, game, or anything else you can ship." },
-  { q: "Do I need experience?",  a: "Basic familiarity with your tools helps, but the challenge is ultimately open-ended. The mission is yours to define." },
+  { q: "What can I build?",      a: "Anything ambitious enough to take around 25 hours. Like a web app, hardware project, CLI tool, game, or anything else you can ship and demo." },
+  { q: "Do I need experience?",  a: "Basic familiarity with your tools helps, but the challenge is open-ended. You just need commitment." },
   { q: "Can I switch projects?", a: "Nope. The point is to finish one in depth. " },
   { q: "What if I fall behind?", a: "If you miss a checkpoint you become a Rouge spy. You can still finish, but you won't qualify for the top rewards." },
-  { q: "Can I use AI?",          a: "Yes, but it can't be more than 20% of your total Code and you must disclose usage" },
+  { q: "What counts as work time?",          a: "Track time with hackatime or laspe" },
+  { q: "How do I submit milestones?",          a: "Simple uploads and checkends" },
+  { q: "Can I work more than 25 hours?",          a: "Absolutly, just 25 hours are required" },
 ];
 
 // ── Components ──────────────────────────────────────────────
@@ -44,53 +46,83 @@ function Hero() {
     >
       {/* GIF background */}
       <img
-        src="/hero.gif"
+        src="/hero v3.png"
         alt=""
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/25 backdrop-blur-[0px]" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6">
+      <div className="relative z-10 flex flex-col items-center text-center px-6 top-[15%]">
         <h1
-          className="text-red-500"
-          style={{ fontSize: "clamp(5rem, 15vw, 12rem)", letterSpacing: "0.05em", lineHeight: 1 }}
+          className="relative font-black uppercase text-center"
+          style={{
+            color: "#000000", // Makes the inside black
+            fontSize: "clamp(6rem, 20vw, 16rem)",
+            letterSpacing: "0.05em",
+            lineHeight: 1,
+            WebkitTextStroke: "2px #ff0000",
+            filter: "drop-shadow(0 0 15px rgba(255, 0, 0, 0.6))",
+            transform: "perspective(500px) rotateX(10deg)",
+            animation: "glowPulse 3s ease-in-out infinite"
+          }}
         >
           THE HEIST
         </h1>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes glowPulse {
+            0%, 100% {
+              filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.4));
+              text-shadow: 0 0 0px rgba(255, 0, 0, 0);
+            }
+            50% {
+              filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.8));
+              text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            }
+          }
+        `}} />
         <p
           className="mt-4 text-white/80 text-base md:text-lg tracking-widest uppercase"
           style={{ fontFamily: "Inter, sans-serif", letterSpacing: "0.2em" }}
         >
-          Build one thing you actually finish
+          Presented By Hack Club
         </p>
-
-        {/* Scroll arrow */}
-        <button
-          onClick={scrollDown}
-          className="mt-16 flex flex-col items-center gap-2 text-white/50 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
-          aria-label="Scroll down"
-        >
-          <span className="text-xs tracking-widest uppercase" style={{ fontFamily: "Inter, sans-serif" }}>
-            Scroll down
-          </span>
-          <span className="text-2xl leading-none" className="bounce">↓</span>
-        </button>
       </div>
+
+      {/* Scroll arrow - Pinned to bottom */}
+      <button
+        onClick={scrollDown}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 hover:text-white transition-colors cursor-pointer bg-transparent border-none z-20"
+        aria-label="Scroll down"
+      >
+        <span className="text-xs tracking-widest uppercase" style={{ fontFamily: "Inter, sans-serif" }}>
+          Scroll down
+        </span>
+        <span className="text-2xl leading-none animate-bounce">↓</span>
+      </button>
     </section>
   );
 }
 
 function WhatThisIs() {
   return (
-    <section id="what" className="py-24 px-6">
+    <section id="what" className="py-10 px-4">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-5xl md:text-6xl text-white mb-6">What This Is</h2>
+        <h2 className="text-5xl md:text-6xl text-white mb-6">Whats the assignment</h2>
         <p className="text-white/70 text-lg leading-relaxed">
-          The Heist is a <span className="text-white font-semibold">25-day engineering challenge</span>. You choose one
-          ambitious project — something you've always wanted to finish — and take it all the way from plan to final
-          ship. At the end choose between 4 final awards
+           <span className="text-red-500 font-semibold"> 
+            You just been chosen as an operator apart of the hack crew . . .  
+             </span> <br></br>
+            The Heist is a 25‑day mission to take one project from planning to escape. 
+           You’ll map the Blueprint, make the Breach, work into the Vault, 
+           and pull off the Getaway -- all while logging 25 hours of real work. 
+           This is a new YSWS model designed to help you break the past 
+           jumping between small, inconsistant projects by giving you structure, checkpoints,
+           and a clear arc from idea to completion.  <br></br>
+
+           <span className="text-white font-semibold">Welcome to the Crew. The job starts now.</span>
+
         </p>
       </div>
     </section>
@@ -99,9 +131,9 @@ function WhatThisIs() {
 
 function HowItWorks() {
   return (
-    <section id="how" className="py-24 px-6">
+    <section id="how" className=" px-4">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-5xl md:text-6xl text-white mb-10">How It Works</h2>
+        <h2 className="text-5xl md:text-6xl text-white mb-10">Operation Breakdown</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {phases.map((phase) => (
             <div
@@ -128,13 +160,13 @@ function HowItWorks() {
 
 function RogueStatus() {
   return (
-    <section id="rogue" className="py-24 px-6">
+    <section id="rogue" className="py-14 px-4">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-5xl md:text-6xl text-white mb-6">What happens if I miss a Checkpoint</h2>
+        <h2 className="text-5xl md:text-6xl text-white mb-6">OPERATION FAILURE PROTOCOL</h2>
         <p className="text-white/70 text-lg leading-relaxed">
-          Miss one checkpoint or milestone and you drop into{" "}
-          <span className="text-red-500 font-semibold">Rogue Status</span>. You can still finish the challenge — but
-          you're off the main crew roster and ineligible for top rewards. But you might have a second chance of redemption...
+          If you miss one checkpoint or milestone and your demoted into{" "}
+          <span className="text-red-500 font-semibold">Rogue Status</span>. 
+          Your mission is comprimised. . . You're off the main crew roster and ineligible for top rewards. But still push toward the Getaway because you might have a second chance of redemption... 
         </p>
       </div>
     </section>
@@ -143,14 +175,18 @@ function RogueStatus() {
 
 function WhyThisExists() {
   return (
-    <section id="why" className="py-24 px-6">
+    <section id="why" className="py-24 px-4">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-5xl md:text-6xl text-white mb-6">Why This Exists</h2>
         <p className="text-white/70 text-lg leading-relaxed mb-4">
-          Most projects: start strong - lose momentum after initial progress - abandon projects once the complexity gets to much.
-          Leaving many to choose easy, repitive projects rather than taking tha challege of something new
+          Every Hacker has a reason for choosing there projects.
+           But most never make it past the first 10 hours. Or chose short easy missions that aren't challenging.
+          The Heist exists to break that pattern.
+          Your mission needs to be indepth enough to make you think, adapt, and push deeper than you’re used to. 
+        So that this ysws gives you structure, checkpoints, and a shared arc so you finish something that actually matters.
+
         </p>
-        <p className="text-white/70 text-lg leading-relaxed">
+        <p className="text-red-600 text-lg leading-relaxed">
           The Heist exists to bridge the gap between starting and finishing
         </p>
       </div>
@@ -160,12 +196,12 @@ function WhyThisExists() {
 
 function FieldGear() {
   return (
-    <section id="gear" className="py-24 px-6">
+    <section id="gear" className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-5xl md:text-6xl text-white mb-4">Prizes</h2>
         <p className="text-white/60 text-lg mb-10 max-w-2xl">
-          Finish the challenge and choose one piece of field gear to help finish your next
-          build.
+          Complete the mission and get access to the Vault. The hidden stash of high-grade gear reserved for successful spies.<br></br> 
+          <span className="text-red-500 font-semibold">Choose between one piece of gear from the Vault:</span>
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {gearItems.map((item) => (
@@ -175,7 +211,7 @@ function FieldGear() {
             </div>
           ))}
         </div>
-        <p className="text-white/30 text-sm mt-6">Crew Status required to claim. Rogue members are not eligible.</p>
+        <p className="text-white/30 text-sm mt-6">Pick the gear that fits the kind of Operator you’re becoming.</p>
       </div>
     </section>
   );
@@ -241,10 +277,10 @@ export default function App() {
       <Hero />
       <WhatThisIs />
       <HowItWorks />
-      <RogueStatus />
       <WhyThisExists />
-      <FieldGear />
+      <RogueStatus />
       <FAQ />
+      <FieldGear />
       <Footer />
     </>
   );
