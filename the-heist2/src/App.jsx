@@ -9,10 +9,10 @@ h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; }
 // ── Data ────────────────────────────────────────────────────
 
 const phases = [
-  { name: "The Blueprint", day: "Day 1-5",  desc: 'Plan the job. Define your tools, and project requirements. You can start the next phase early once approved', checkpoint: null },
-  { name: "Initial Breach",    day: "Day 5-12", desc: "Make your first real entry and break in to the sucurity. Get the first functional logic working.",          checkpoint: "REQUIREMNET: Get 8 hours logged" },
-  { name: "Creak the Vault",     day: "Day 12-19", desc: "Day of mission: Creak the core and finish the MVP.",                             checkpoint: "REQUIREMENT: 19 hours logged, Get MVP" },
-  { name: "Final Getaway",   day: "Day 19-25", desc: "Finish the job. Polish and ship your project and demo. Chose the loot found from the vault. ",                checkpoint: "REQUIREMNET: 25 hours logged and shipped" },
+  { name: "The Blueprint", day: "Day 1-5",  desc: 'Plan the job, define your tools, and project requirements. You can start the next phase early once approved', checkpoint: null },
+  { name: "Initial Breach",    day: "Day 5-12", desc: "Make your first real entry and break into the security. Get the first functional logic working.",          checkpoint: "REQUIREMENT: Get 8 hours logged" },
+  { name: "Crack the Vault",     day: "Day 12-19", desc: "Day of mission: Crack the core and finish the MVP.",                             checkpoint: "REQUIREMENT: 19 hours logged, Get MVP" },
+  { name: "Final Getaway",   day: "Day 19-25", desc: "Finish the job. Polish and ship your project and demo. Choose the loot found from the vault. ",                checkpoint: "REQUIREMENT: 25 hours logged and shipped" },
 ];
 
 const gearItems = [
@@ -26,9 +26,9 @@ const faqs = [
   { q: "What can I build?",      a: "Anything ambitious enough to take around 25 hours. Like a web app, hardware project, CLI tool, game, or anything else you can ship and demo." },
   { q: "Do I need experience?",  a: "Basic familiarity with your tools helps, but the challenge is open-ended. You just need commitment." },
   { q: "Can I switch projects?", a: "Nope. The point is to finish one in depth. " },
-  { q: "What if I fall behind?", a: "If you miss a checkpoint you become a Rouge spy. You can still finish, but you won't qualify for the top rewards." },
-  { q: "What counts as work time?",          a: "Track time with hackatime or laspe" },
-  { q: "How do I submit milestones?",          a: "Simple uploads and checkends" },
+  { q: "What if I fall behind?", a: "If you miss a checkpoint you become a Rogue Operator. You can still finish, but you won't qualify for the top rewards." },
+  { q: "What counts as work time?",          a: "Track time with hackatime or Lapse" },
+  { q: "How do I submit milestones?",          a: "Simple uploads and check ins" },
   { q: "Can I work more than 25 hours?",          a: "Absolutly, just 25 hours are required" },
 ];
 
@@ -112,7 +112,7 @@ function WhatThisIs() {
         <h2 className="text-5xl md:text-6xl text-white mb-6">Whats the assignment</h2>
         <p className="text-white/70 text-lg leading-relaxed">
            <span className="text-red-500 font-semibold"> 
-            You just been chosen as an operator apart of the hack crew . . .  
+            You’ve just been chosen as an operator as part of the Hack Crew . . .  
              </span> <br></br>
             The Heist is a 25‑day mission to take one project from planning to escape. 
            You’ll map the Blueprint, make the Breach, work into the Vault, 
@@ -122,6 +122,24 @@ function WhatThisIs() {
            and a clear arc from idea to completion.  <br></br>
 
            <span className="text-white font-semibold">Welcome to the Crew. The job starts now.</span>
+
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function WhatsDifferent() {
+  return (
+    <section id="what" className="py-10 px-4">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-5xl md:text-6xl text-red-600 mb-6">What makes The Heist different</h2>
+        <p className="text-white/70 text-lg leading-relaxed">
+            Most programs are built around starting.
+      The Heist is built around finishing.
+For most YSWS you start multiple small projects, chase quick wins and you reset and move on
+But for The Heist you choose one project, you stay on it and push through to the end. <span class="italic"> You don’t escape difficulty by starting something new. </span>
+You break through it.
 
         </p>
       </div>
@@ -166,7 +184,7 @@ function RogueStatus() {
         <p className="text-white/70 text-lg leading-relaxed">
           If you miss one checkpoint or milestone and your demoted into{" "}
           <span className="text-red-500 font-semibold">Rogue Status</span>. 
-          Your mission is comprimised. . . You're off the main crew roster and ineligible for top rewards. But still push toward the Getaway because you might have a second chance of redemption... 
+          Your mission is compromised. . . You're off the main crew roster and ineligible for top rewards. But still push toward the Getaway because you might have a second chance of redemption... 
         </p>
       </div>
     </section>
@@ -179,11 +197,11 @@ function WhyThisExists() {
       <div className="max-w-3xl mx-auto">
         <h2 className="text-5xl md:text-6xl text-white mb-6">Why This Exists</h2>
         <p className="text-white/70 text-lg leading-relaxed mb-4">
-          Every Hacker has a reason for choosing there projects.
+          Every Hacker has a reason for choosing their projects.
            But most never make it past the first 10 hours. Or chose short easy missions that aren't challenging.
           The Heist exists to break that pattern.
-          Your mission needs to be indepth enough to make you think, adapt, and push deeper than you’re used to. 
-        So that this ysws gives you structure, checkpoints, and a shared arc so you finish something that actually matters.
+          Your mission needs to be in-depth enough to make you think, adapt, and push deeper than you’re used to. 
+        So that this YSWS gives you structure, checkpoints, and a shared arc so you finish something that actually matters.
 
         </p>
         <p className="text-red-600 text-lg leading-relaxed">
@@ -276,6 +294,7 @@ export default function App() {
       <style>{FONTS}</style>
       <Hero />
       <WhatThisIs />
+      <WhatsDifferent />
       <HowItWorks />
       <WhyThisExists />
       <RogueStatus />
