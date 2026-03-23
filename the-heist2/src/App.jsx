@@ -212,6 +212,78 @@ function WhyThisExists() {
   );
 }
 
+function TheCrew() {
+  return (
+    <section id="crew" className="py-24 px-6 bg-black border-t border-white/5">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header with a "Scanning" aesthetic */}
+        <div className="flex items-baseline gap-4 mb-16">
+          <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter">
+            The Crew
+          </h2>
+          <div className="h-[2px] flex-grow bg-red-600/20"></div>
+          <span className="font-mono text-xs text-red-500 hidden md:block">STATUS: ENCRYPTED</span>
+        </div>
+
+        {/* The 3-Column Tactical Grid */}
+        <div className="grid md:grid-cols-3 gap-0 border border-white/10">
+          
+          {/* Column 1: The Concept */}
+          <div className="p-8 border-b md:border-b-0 md:border-r border-white/10 hover:bg-zinc-900/30 transition-colors">
+            <h3 className="font-mono text-red-500 text-xs mb-6 uppercase tracking-widest">[ 01. grouping ]</h3>
+            <p className="text-white font-bold text-xl mb-4 leading-tight">Join A CREW.</p>
+            <p className="text-white/60 text-sm leading-relaxed">
+              When you enter The Heist, you’re placed into a Crew.
+               A small circle of 3–5 Operators running their 
+               own missions, but moving through the operation 
+               together. It’s your private channel to drop
+                progress, share wins and fails, and keep each
+                 other alive through the checkpoints.
+            </p>
+          </div>
+
+          {/* Column 2: The Sidekick */}
+          <div className="p-8 border-b md:border-b-0 md:border-r border-white/10 hover:bg-zinc-900/30 transition-colors">
+            <h3 className="font-mono text-red-500 text-xs mb-6 uppercase tracking-widest">[ 02. Support ]</h3>
+            <p className="text-white font-bold text-xl mb-4 leading-tight">The SIDEKICK</p>
+            <p className="text-white/60 text-sm leading-relaxed">
+              Each Crew gets a <span className="text-white italic">Sidekick</span> — a helper embedded in your Slack channel. 
+              They’re watching the cameras, hypes your progress, drops resources, and checking in when things get quiet.
+            </p>
+          </div>
+
+          {/* Column 3: Transmissions */}
+          <div className="p-8 hover:bg-zinc-900/30 transition-colors">
+            <h3 className="font-mono text-red-500 text-xs mb-6 uppercase tracking-widest">[ 03. Intel ]</h3>
+            <p className="text-white font-bold text-xl mb-4 leading-tight">Incoming Side Operations.</p>
+            <p className="text-white/60 text-sm leading-relaxed">
+              Throughout the 25 days, your Crew might accidenttally intercept the wrong radio Transmission into your channel. These transmission might select you for tiny optional side operations. These might be:
+    a tiny creative endevor,
+
+    More details about the Vault,
+
+    and/or puzzle that unlocks small cosmetic prizes.
+            </p>
+          </div>
+        </div>
+
+        {/* Horizontal Callout: The Leaderboard */}
+        <div className="mt-12 flex flex-col md:flex-row items-center gap-6 p-6 border-l-4 border-red-600 bg-zinc-950">
+          <div className="md:w-1/4">
+            <h4 className="font-mono text-white text-sm font-bold uppercase tracking-widest">Side-Ops Board</h4>
+          </div>
+          <div className="md:w-3/4">
+            <p className="text-white/50 text-sm">
+              Crews that complete side ops together are able to climb a leaderboard for BRAGGING rights. 
+              It won't track hours or affect the main prizes —it’s just for fun, chaos, and showing who's the most active in their mission.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FieldGear() {
   return (
     <section id="gear" className="py-24 px-4">
@@ -298,6 +370,7 @@ export default function App() {
       <HowItWorks />
       <WhyThisExists />
       <RogueStatus />
+       <TheCrew />
       <FAQ />
       <FieldGear />
       <Footer />
