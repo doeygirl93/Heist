@@ -18,8 +18,9 @@ const phases = [
 const gearItems = [
   { name: "Raspberry Pi 5 Kit" },
   { name: "Flipper Zero" },
-  { name: 'ARZOPA 16" Portable Monitor '},
-  { name: "Keychron K10 keyboard"},
+  { name: 'Portable Monitor + Rasberry pi 400'},
+  { name: "Rainy 75 CNC Mechanical keyboard"},
+  { name: "200$ Digital grants for mini pc'sm spotify or cloud credits etc."}
 ];
 
 const faqs = [
